@@ -1,0 +1,24 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_tags %}
+{% load custom_filters %}
+{% load cache %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% cache 60 content %}
+{% block content %}
+
+{% if news %}
+        <h3>{{ random_news.title_post|censor_start }}</h3>
+        <p>{{ random_news.text_post|censor_start }}</p>
+{% else %}
+    <p>Новостей нет!</p>
+{% endif %}
+
+<button onclick="window.location.reload();">Другая новость</button>
+<p><button><a href="/post/celery/">Celery</a></button></p>
+
+{% endblock %}
+{% endcache %}
