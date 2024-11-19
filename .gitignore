@@ -4,6 +4,7 @@ venv/
 
 # IDE и редакторы
 .idea/
+idea/
 
 
 
